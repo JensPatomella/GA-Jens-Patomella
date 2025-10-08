@@ -10,23 +10,20 @@ def predicted(year):
     previous = data()
     years = []
     temps = []
+    c = 0
     for i in previous:
         if i[0].endswith("01-01"):
-            date_str = i[0]
             temp = float(i[1])
-            year_val = int(date_str[:4])
+            year_val = 0 + c
+            c += 1
             years.append(year_val)
             temps.append(temp)
-    if years:
-        X = np.array(years).reshape(-1, 1)
-        y = np.array(temps)
-        model = LinearRegression()
-        model.fit(X, y)
-        prediction = model.predict([[year]])[0]
-        return prediction
-    else:
-        return None
-            
-            
 
-print(predicted(2025))
+    X = np.array(years).reshape(-1, 1)
+    y = np.array(temps)
+    model = LinearRegression()
+    model.fit(X, y)
+    prediction = model.predict([[year]])[0]
+    return prediction
+
+print(predicted(28))
