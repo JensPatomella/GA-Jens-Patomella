@@ -18,6 +18,7 @@ def predicted(year):
             c += 1
             years.append(year_val)
             temps.append(temp)
+            #previous = np.delete(previous, (idexet av "i" i "previous") , 0) för att det ska gå fortare desto fler datum som redan är klara
 
     X = np.array(years).reshape(-1, 1)
     y = np.array(temps)
