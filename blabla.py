@@ -5,12 +5,12 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from datetime import datetime, timedelta
 
-def data():
-    df = pd.read_csv("predicted2025.csv", on_bad_lines='skip', sep=';', usecols=['Lufttemperatur', 'Representativt dygn'])
+def data(filename):
+    df = pd.read_csv(filename, on_bad_lines='skip', sep=';', usecols=['Lufttemperatur', 'Representativt dygn'])
     return df.values
 
-def draw():
-    a = data()
+def draw(filename):
+    a = data(filename)
     b = []
     for i in a:
         b.append(float(i[1]))
@@ -25,4 +25,5 @@ def draw():
     ax.plot(x_eval, kde2(x_eval), 'r-', label="Silverman's Rule")
     plt.show()
 
-draw()
+draw("predicted2025.csv")
+
