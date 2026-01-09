@@ -20,7 +20,7 @@ def draw():
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.plot(x1, np.zeros(x1.shape), 'b+', ms=20)  # rug plot
-    x_eval = np.linspace(-10, 10, num=200)
+    x_eval = np.linspace(-10, 30, num=200)#från -10 till 30 grader
     ax.plot(x_eval, kde1(x_eval), 'k-', label="Scott's Rule")
     ax.plot(x_eval, kde2(x_eval), 'r-', label="Silverman's Rule")
     plt.show()
