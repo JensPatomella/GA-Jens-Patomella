@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import root_mean_squared_error
 from datetime import datetime, timedelta
 
 def data():
@@ -10,6 +11,7 @@ def data():
 def predicted(year):
     previous = data()
     prediction = []
+    mse = []
     start = datetime(2025, 1, 1)
     end = datetime(2025, 12, 31)
     current = start
@@ -33,6 +35,7 @@ def predicted(year):
             model = LinearRegression()
             model.fit(X, y)
             prediction.append(model.predict([[year]])[0])
+            mse.append()
         current += timedelta(days=1)
     return prediction
 print(predicted(28))
